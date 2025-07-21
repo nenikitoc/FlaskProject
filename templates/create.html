@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Adding an entry
+{% endblock %}
+
+{% block content %}
+<h1>Adding an entry</h1>
+
+<form method="post" class="form-control">
+	<input type="text" name="title" placeholder="enter the title of the article" class="form-control"><br>
+	<input type="text" name="text" placeholder="enter the text of the article" class="form-control"><br>
+	<button class="btn btn-success" type="submit">Add</button>
+</form>
+{% endblock %}

@@ -18,11 +18,15 @@
 			<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 				<li><a href="{{url_for('index')}}" class="nav-link px-2 link-secondary">Main page</a></li>
 				<li><a href="{{url_for('about')}}" class="nav-link px-2">Page about us</a></li>
+				<li><a href="{{url_for('create')}}" class="nav-link px-2">Add an entry</a></li>
 			</ul>
 			<div class="col-md-3 text-end"> <button type="button" class="btn btn-outline-primary me-2">Login</button> <button
 					type="button" class="btn btn-primary">Sign-up</button> </div>
 		</header>
 		{% block body %}{% endblock %}
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
 	</div>
 </body>
 

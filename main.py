@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -16,6 +16,26 @@ class Post(db.Model):
 @app.route('/index')
 def index():
   return render_template('index.html')
+
+
+@app.route('/create', methods=['POST', 'GET'])
+def create():
+  if request.method == 'POST':
+    title = request.form['title']
+    text = request.form['text']
+    
+    post = Post(title=title, text=text)
+    
+    try:
+      db.session.add(post)
+      db.session.commit()
+      return redirect('/create')
+    except:
+      return 'An error occurred when adding the article'
+    
+  else:
+    return render_template('create.html')
+
 
 @app.route('/about')
 def about():
